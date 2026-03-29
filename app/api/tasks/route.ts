@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db"; // Thay "@your-org/db" bằng tên thật của package // if you have path alias/package// Đổi @/ thành ../../../
+import { db } from "@/lib/db";
+import { logger } from "@/src/utils/logger"; // Thay "@your-org/db" bằng tên thật của package // if you have path alias/package// Đổi @/ thành ../../../
 export async function GET() {
+  logger.info(`Có người vừa gọi API: [GET] /api/tasks`);
   return NextResponse.json(db.tasks);
 }
 
 
 export async function POST(req: Request) {
+  logger.info(`Có người vừa gọi API: [POST] /api/tasks`);
   try {
     const body = await req.json();
     
@@ -25,4 +28,5 @@ export async function POST(req: Request) {
   } catch (error) {
     return NextResponse.json({ error: "Dữ liệu không hợp lệ" }, { status: 400 });
   }
+
 }
