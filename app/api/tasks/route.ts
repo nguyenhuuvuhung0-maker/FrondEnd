@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       dueDate: body.dueDate || "",
       assignee: body.assignee || "Hưng", 
     };
-    
+      
     db.tasks.push(newTask);
     
     return NextResponse.json(newTask, { status: 201 });
