@@ -79,7 +79,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            disabled={isLoading} // Khóa input khi đang loading
+            disabled={isLoading} 
           />
           
           <Button 
